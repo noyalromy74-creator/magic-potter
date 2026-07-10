@@ -1,55 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter vs Voldemort</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #fff;
-            font-family: sans-serif;
-        }
-        .container {
-            width: 100%;
-            max-width: 400px;
-            border: 4px solid #ffd700;
-            border-radius: 20px;
-            background-color: #000;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .title {
-            color: #ffd700;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 15px;
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .box { width: 90%; max-width: 400px; border: 4px solid #ffd700; border-radius: 20px; overflow: hidden; }
+        img { width: 100%; display: block; animation: move 5s infinite alternate ease-in-out; }
+        @keyframes move {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <img src="104204.jpg" alt="Harry Potter">
+    <div class="box">
+        <img src="battle.png" alt="Harry Potter">
     </div>
-
-    <div class="container">
-        <img src="images (3).jpg" alt="Voldemort">
-        <div class="title">
-            HARRY POTTER <br>AND THE<br>DEATHLY HALLOWS - PART 2
-        </div>
-    </div>
-
 </body>
 </html>
