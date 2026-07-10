@@ -2,160 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hermione Granger Magic Scene</title>
+    <title>The Final Duel</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: radial-gradient(circle, #0f001a, #000);
-            color: #fff;
-            font-family: 'Georgia', serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+        body { margin: 0; background: #000; color: #fff; font-family: 'Georgia', serif; text-align: center; overflow: hidden; }
+        
+        .scene { width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+        
+        .duel-box { width: 350px; height: 500px; border: 3px solid #ffd700; position: relative; background: radial-gradient(#1a0a2a, #000); overflow: hidden; }
+        
+        /* Characters */
+        .char { position: absolute; font-size: 50px; transition: 1s; }
+        #harry { bottom: 20px; left: 50px; }
+        #voldy { top: 20px; right: 50px; transform: scaleX(-1); }
 
-        h1 {
-            color: #ffd700;
-            font-size: 18px;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
+        /* Magic Beam */
+        .beam { position: absolute; width: 0%; height: 5px; background: #00bfff; bottom: 80px; left: 100px; animation: castBeam 4s infinite; }
+        
+        /* Death Animation */
+        .dust { position: absolute; font-size: 80px; opacity: 0; }
+        
+        /* Final Title */
+        .title { position: absolute; font-size: 20px; color: #ffd700; opacity: 0; animation: showTitle 8s forwards; }
 
-        /* 10-Second Video Container */
-        .video-container {
-            width: 340px;
-            height: 480px;
-            background: #110022;
-            border: 4px solid #ffd700;
-            border-radius: 20px;
-            box-shadow: 0 0 35px rgba(0, 191, 255, 0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Hermione Full Image Box */
-        .image-box {
-            width: 100%;
-            height: 65%;
-            position: relative;
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Hermione Actual Character Image */
-        .hermione-img {
-            height: 100%;
-            object-fit: contain;
-            /* Hand pointing forward animation */
-            animation: pointWandAction 4s ease-in-out infinite;
-        }
-
-        /* Magical Blue Glow Effect from the Wand */
-        .wand-glow {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #fff;
-            border-radius: 50%;
-            top: 38%;
-            right: 30%;
-            box-shadow: 0 0 35px 25px rgba(0, 191, 255, 0.9), 0 0 70px 50px rgba(255, 255, 255, 0.6);
-            opacity: 0;
-            animation: glowBurst 4s ease-in-out infinite;
-            z-index: 5;
-        }
-
-        /* Expecto Patronum Spell Text Animation */
-        .spell-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #00bfff;
-            text-shadow: 0 0 25px #00bfff, 0 0 10px #fff;
-            margin-top: 25px;
-            letter-spacing: 1.5px;
-            text-align: center;
-            opacity: 0;
-            animation: spellAppear 4s ease-in-out infinite;
-            z-index: 10;
-        }
-
-        /* Video style loop timeline bar */
-        .timeline {
-            width: 85%;
-            height: 5px;
-            background: #222;
-            border-radius: 3px;
-            position: absolute;
-            bottom: 20px;
-            overflow: hidden;
-        }
-
-        .timeline-fill {
-            height: 100%;
-            background: #00bfff;
-            width: 0%;
-            animation: runTimeline 4s linear infinite;
-        }
-
-        /* --- MAGIC ANIMATIONS --- */
-
-        /* 1. Hermione moves forward/extends her hand */
-        @keyframes pointWandAction {
-            0%, 20%, 100% { transform: scale(1) translate(0, 0); }
-            45%, 80% { transform: scale(1.05) translate(8px, -5px); } 
-        }
-
-        /* 2. Glow burst right when she points her wand */
-        @keyframes glowBurst {
-            0%, 35%, 100% { opacity: 0; transform: scale(0.5); }
-            45%, 75% { opacity: 1; transform: scale(1.3); }
-        }
-
-        /* 3. Spell text appears from the magic glow */
-        @keyframes spellAppear {
-            0%, 40%, 100% { opacity: 0; transform: scale(0.8) translateY(10px); }
-            55%, 80% { opacity: 1; transform: scale(1.1) translateY(0); }
-        }
-
-        /* 4. Progress bar loop */
-        @keyframes runTimeline {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
+        @keyframes castBeam { 0% {width: 0%;} 50% {width: 200px; box-shadow: 0 0 20px #00bfff;} 100% {width: 0%;} }
+        @keyframes showTitle { 0%, 80% {opacity: 0;} 100% {opacity: 1; transform: scale(1.2);} }
     </style>
 </head>
 <body>
 
-    <h1>🎬 HERMIONE'S MAGICAL MOMENT</h1>
-
-    <div class="video-container">
-        <div class="image-box">
-            <!-- Hermione Full Length Official Image -->
-            <img class="hermione-img" src="https://images.ctfassets.net/usf1vwtu24tk/4S699X7u6Y8U6m0GAsSgAs/37905fe430eb0fb63ff2f592d3eb03e1/hermione-granger-full-length.png" alt="Hermione Granger">
+    <div class="scene">
+        <div class="duel-box">
+            <div id="harry" class="char">🧙‍♂️</div>
+            <div id="voldy" class="char">🦹‍♂️</div>
+            <div class="beam"></div>
+            <div id="voldy-dust" class="dust">💨</div>
             
-            <!-- Magic Glow coming out from her wand position -->
-            <div class="wand-glow"></div>
-        </div>
-        
-        <!-- Spell Text shooting out -->
-        <div class="spell-text">⚡ EXPECTO PATRONUM!</div>
-
-        <!-- 10-Second Video Loader -->
-        <div class="timeline">
-            <div class="timeline-fill"></div>
+            <div class="title">
+                HARRY POTTER AND THE <br> DEATHLY HALLOWS - PART 2
+            </div>
         </div>
     </div>
 
+    <script>
+        // Voldemort disappears after 5 seconds
+        setTimeout(() => {
+            document.getElementById('voldy').style.display = 'none';
+            document.getElementById('voldy-dust').style.opacity = '1';
+        }, 5000);
+    </script>
 </body>
 </html>
