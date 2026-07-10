@@ -27,7 +27,7 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        /* Video Screen Container */
+        /* 10-Second Video Container */
         .video-container {
             width: 340px;
             height: 480px;
@@ -57,20 +57,19 @@
         .hermione-img {
             height: 100%;
             object-fit: contain;
-            /* Wand raising/pointing movement animation */
+            /* Hand pointing forward animation */
             animation: pointWandAction 4s ease-in-out infinite;
         }
 
-        /* Magical Blue Glow Effect from the Wand area */
+        /* Magical Blue Glow Effect from the Wand */
         .wand-glow {
             position: absolute;
             width: 10px;
             height: 10px;
             background: #fff;
             border-radius: 50%;
-            /* Positioning near where the wand tip usually is */
-            top: 40%;
-            right: 32%;
+            top: 38%;
+            right: 30%;
             box-shadow: 0 0 35px 25px rgba(0, 191, 255, 0.9), 0 0 70px 50px rgba(255, 255, 255, 0.6);
             opacity: 0;
             animation: glowBurst 4s ease-in-out infinite;
@@ -111,13 +110,13 @@
 
         /* --- MAGIC ANIMATIONS --- */
 
-        /* 1. Hermione moves forward/extends to point the wand */
+        /* 1. Hermione moves forward/extends her hand */
         @keyframes pointWandAction {
             0%, 20%, 100% { transform: scale(1) translate(0, 0); }
-            45%, 80% { transform: scale(1.05) translate(5px, -5px); } /* Moves slightly to mimic pointing */
+            45%, 80% { transform: scale(1.05) translate(8px, -5px); } 
         }
 
-        /* 2. Glow burst right when she points */
+        /* 2. Glow burst right when she points her wand */
         @keyframes glowBurst {
             0%, 35%, 100% { opacity: 0; transform: scale(0.5); }
             45%, 75% { opacity: 1; transform: scale(1.3); }
@@ -129,7 +128,7 @@
             55%, 80% { opacity: 1; transform: scale(1.1) translateY(0); }
         }
 
-        /* 4. Progress bar */
+        /* 4. Progress bar loop */
         @keyframes runTimeline {
             0% { width: 0%; }
             100% { width: 100%; }
@@ -142,7 +141,7 @@
 
     <div class="video-container">
         <div class="image-box">
-            <!-- Hermione Full Image with transparent background -->
+            <!-- Hermione Full Length Official Image -->
             <img class="hermione-img" src="https://images.ctfassets.net/usf1vwtu24tk/4S699X7u6Y8U6m0GAsSgAs/37905fe430eb0fb63ff2f592d3eb03e1/hermione-granger-full-length.png" alt="Hermione Granger">
             
             <!-- Magic Glow coming out from her wand position -->
