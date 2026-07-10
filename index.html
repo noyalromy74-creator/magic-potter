@@ -1,87 +1,149 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter Magic Card</title>
+    <title>Hermione's Magic Spell</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle, #1a0033, #000);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-family: 'Georgia', serif;
-        }
-        .card {
-            background: linear-gradient(135deg, #111, #222);
-            width: 300px;
-            height: 450px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(142, 68, 173, 0.6);
-            border: 3px solid #ffd700;
-            text-align: center;
-            padding: 20px;
+            background: radial-gradient(circle, #0d001a, #000);
             color: #fff;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            cursor: pointer;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
         }
-        .card:hover {
-            transform: scale(1.05) rotateY(10deg);
-            box-shadow: 0 0 50px #ffd700;
-        }
-        .crest {
-            font-size: 70px;
-            margin-top: 40px;
-            animation: float 3s ease-in-out infinite;
-        }
+
         h1 {
             color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 25px;
             letter-spacing: 2px;
-            font-size: 24px;
-            margin-top: 20px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
-        p {
+
+        /* 10-Second Video Container */
+        .video-screen {
+            width: 320px;
+            height: 400px;
+            background: #110022;
+            border: 4px solid #ffd700;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hermione's Magic Wand */
+        .wand {
+            font-size: 50px;
+            transform: rotate(-45deg);
+            animation: waveWand 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Magical Light from Wand */
+        .magic-glow {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #00bfff;
+            border-radius: 50%;
+            top: 35%;
+            box-shadow: 0 0 40px 30px rgba(0, 191, 255, 0.8), 0 0 80px 50px rgba(255, 255, 255, 0.6);
+            animation: emitMagic 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        /* Hermione's Name Tag */
+        .caster {
             font-size: 14px;
-            color: #bbb;
-            line-height: 1.6;
+            color: #aaa;
+            font-style: italic;
+            margin-top: 15px;
         }
-        .wand-btn {
-            margin-top: 40px;
-            background: #ffd700;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+
+        /* Spell Text Animation */
+        .spell-text {
+            font-size: 24px;
             font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            color: #00bfff;
+            text-shadow: 0 0 20px #00bfff, 0 0 10px #fff;
+            margin-top: 30px;
+            letter-spacing: 1px;
+            animation: spellCast 4s linear infinite;
+            text-align: center;
+            min-height: 40px;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+        /* Progress Loop bar */
+        .timeline {
+            width: 80%;
+            height: 4px;
+            background: #222;
+            border-radius: 2px;
+            margin-top: 40px;
+            overflow: hidden;
+        }
+
+        .timeline-fill {
+            height: 100%;
+            background: #00bfff;
+            width: 0%;
+            animation: loopTime 4s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes waveWand {
+            0%, 100% { transform: rotate(-45deg) translate(0, 0); }
+            50% { transform: rotate(-30deg) translate(5px, -10px); }
+        }
+
+        @keyframes emitMagic {
+            0%, 100% { transform: scale(0.5); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        @keyframes spellCast {
+            0%, 20%, 100% { opacity: 0; transform: scale(0.8); content: ""; }
+            40%, 80% { opacity: 1; transform: scale(1.1); }
+        }
+
+        @keyframes loopTime {
+            0% { width: 0%; }
+            100% { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card" onclick="castSpell()">
-        <div class="crest">⚡</div>
-        <h1>HOGWARTS</h1>
-        <p>Welcome to the Wizarding World.<br>Tap the card to cast a magical spell!</p>
-        <button class="wand-btn">Alohomora!</button>
-    </div>
+    <h1>✨ HERMIONE'S SPELL VIDEO ✨</h1>
 
-    <script>
-        function castSpell() {
-            alert("🪄 Expecto Patronum! Magic is in the air!");
-        }
-    </script>
+    <div class="video-screen">
+        <!-- Hermione's Wand & Magic Glow -->
+        <div class="wand">🪄</div>
+        <div class="magic-glow"></div>
+        
+        <div class="caster">Hermione Granger casts...</div>
+        
+        <!-- The Main Spell Text -->
+        <div class="spell-text">⚡ EXPECTO PATRONUM!</div>
+
+        <!-- 10s Video Style Progress Bar -->
+        <div class="timeline">
+            <div class="timeline-fill"></div>
+        </div>
+    </div>
 
 </body>
 </html>
