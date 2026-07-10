@@ -3,107 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter vs Voldemort - The Final Duel</title>
+    <title>Harry Potter vs Voldemort - Final Duel</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle, #0f001a, #000);
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             color: #fff;
             font-family: 'Georgia', serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
         }
 
-        /* 10-Second Video Container Box */
-        .video-box {
+        .container {
             width: 350px;
-            height: 520px;
             border: 4px solid #ffd700;
             border-radius: 20px;
-            box-shadow: 0 0 35px rgba(0, 191, 255, 0.5);
-            background: #05000a;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-        }
-
-        /* Image Wrapper */
-        .image-container {
-            width: 90%;
-            height: 68%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-        }
-
-        /* The Duel Image - Direct Permanent Link */
-        .duel-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Movie Title Styling */
-        .movie-title {
-            width: 90%;
+            background-color: #000;
+            padding: 15px;
             text-align: center;
-            font-size: 16px;
-            font-weight: bold;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .title {
             color: #ffd700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-            line-height: 1.5;
-            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
             letter-spacing: 1px;
-        }
-
-        /* Progress Loop Timeline Bar */
-        .timeline-bar {
-            width: 85%;
-            height: 4px;
-            background: #222;
-            border-radius: 2px;
-            position: absolute;
-            bottom: 20px;
-            overflow: hidden;
-        }
-
-        .timeline-fill {
-            height: 100%;
-            background: #00bfff;
-            width: 0%;
-            animation: progressRun 4s linear infinite;
-        }
-
-        @keyframes progressRun {
-            0% { width: 0%; }
-            100% { width: 100%; }
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-box">
-        <!-- The Final Battle Image Box (Permanent Wikipedia Hosted Link) -->
-        <div class="image-container">
-            <img class="duel-img" src="https://upload.wikimedia.org/wikipedia/en/d/df/Harry_Potter_and_the_Deathly_Hallows_–_Part_2_poster.jpg" alt="Harry Potter vs Voldemort">
-        </div>
-
-        <!-- Only the Unique Title Text you wanted -->
-        <div class="movie-title">
-            HARRY POTTER <br>and the<br>DEATHLY HALLOWS - PART 2
-        </div>
-
-        <!-- Timeline Loader -->
-        <div class="timeline-bar">
-            <div class="timeline-fill"></div>
+    <div class="container">
+        <!-- Official Harry Potter and Voldemort Duel Poster -->
+        <img src="https://upload.wikimedia.org/wikipedia/en/d/df/Harry_Potter_and_the_Deathly_Hallows_–_Part_2_poster.jpg" alt="Harry Potter vs Voldemort">
+        
+        <!-- Movie Title -->
+        <div class="title">
+            HARRY POTTER <br>AND THE<br>DEATHLY HALLOWS - PART 2
         </div>
     </div>
 
