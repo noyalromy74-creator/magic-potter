@@ -2,53 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Final Duel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter vs Voldemort - The Final Duel</title>
     <style>
-        body { margin: 0; background: #000; color: #fff; font-family: 'Georgia', serif; text-align: center; overflow: hidden; }
-        
-        .scene { width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
-        
-        .duel-box { width: 350px; height: 500px; border: 3px solid #ffd700; position: relative; background: radial-gradient(#1a0a2a, #000); overflow: hidden; }
-        
-        /* Characters */
-        .char { position: absolute; font-size: 50px; transition: 1s; }
-        #harry { bottom: 20px; left: 50px; }
-        #voldy { top: 20px; right: 50px; transform: scaleX(-1); }
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #0f001a, #000);
+            color: #fff;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-        /* Magic Beam */
-        .beam { position: absolute; width: 0%; height: 5px; background: #00bfff; bottom: 80px; left: 100px; animation: castBeam 4s infinite; }
-        
-        /* Death Animation */
-        .dust { position: absolute; font-size: 80px; opacity: 0; }
-        
-        /* Final Title */
-        .title { position: absolute; font-size: 20px; color: #ffd700; opacity: 0; animation: showTitle 8s forwards; }
+        /* 10-Second Video Container Box */
+        .video-box {
+            width: 350px;
+            height: 520px;
+            border: 4px solid #ffd700;
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(0, 191, 255, 0.5);
+            background: #05000a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 15px;
+        }
 
-        @keyframes castBeam { 0% {width: 0%;} 50% {width: 200px; box-shadow: 0 0 20px #00bfff;} 100% {width: 0%;} }
-        @keyframes showTitle { 0%, 80% {opacity: 0;} 100% {opacity: 1; transform: scale(1.2);} }
+        /* Image Wrapper */
+        .image-container {
+            width: 90%;
+            height: 70%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* The Duel Image */
+        .duel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Movie Title Styling */
+        .movie-title {
+            width: 90%;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            line-height: 1.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Progress Loop Timeline Bar */
+        .timeline-bar {
+            width: 85%;
+            height: 4px;
+            background: #222;
+            border-radius: 2px;
+            position: absolute;
+            bottom: 20px;
+            overflow: hidden;
+        }
+
+        .timeline-fill {
+            height: 100%;
+            background: #00bfff;
+            width: 0%;
+            animation: progressRun 4s linear infinite;
+        }
+
+        @keyframes progressRun {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="scene">
-        <div class="duel-box">
-            <div id="harry" class="char">🧙‍♂️</div>
-            <div id="voldy" class="char">🦹‍♂️</div>
-            <div class="beam"></div>
-            <div id="voldy-dust" class="dust">💨</div>
-            
-            <div class="title">
-                HARRY POTTER AND THE <br> DEATHLY HALLOWS - PART 2
-            </div>
+    <div class="video-box">
+        <!-- The Final Battle Image Box -->
+        <div class="image-container">
+            <img class="duel-img" src="https://i.ibb.co/v6p0YQzW/harry-vs-voldy.png" alt="Harry Potter vs Voldemort">
+        </div>
+
+        <!-- Only the Unique Title Text you wanted -->
+        <div class="movie-title">
+            HARRY POTTER <br>and the<br>DEATHLY HALLOWS - PART 2
+        </div>
+
+        <!-- Timeline Loader -->
+        <div class="timeline-bar">
+            <div class="timeline-fill"></div>
         </div>
     </div>
 
-    <script>
-        // Voldemort disappears after 5 seconds
-        setTimeout(() => {
-            document.getElementById('voldy').style.display = 'none';
-            document.getElementById('voldy-dust').style.opacity = '1';
-        }, 5000);
-    </script>
 </body>
 </html>
