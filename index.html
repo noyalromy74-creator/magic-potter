@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hermione Granger Magic Spell</title>
+    <title>Hermione Granger Magic Scene</title>
     <style>
         body {
             margin: 0;
@@ -22,124 +22,115 @@
         h1 {
             color: #ffd700;
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             letter-spacing: 2px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        /* 10-Second Video Container */
+        /* Video Screen Container */
         .video-container {
-            width: 320px;
-            height: 440px;
-            background: #130122;
+            width: 340px;
+            height: 480px;
+            background: #110022;
             border: 4px solid #ffd700;
             border-radius: 20px;
             box-shadow: 0 0 35px rgba(0, 191, 255, 0.4);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding: 20px;
-            box-sizing: border-box;
             position: relative;
             overflow: hidden;
         }
 
-        /* Hermione Character (Using Stylized Avatar/Emoji Design) */
-        .hermione-avatar {
-            font-size: 80px;
-            margin-top: 20px;
+        /* Hermione Full Image Box */
+        .image-box {
+            width: 100%;
+            height: 65%;
             position: relative;
-            z-index: 2;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* The Magic Wand */
-        .wand {
-            font-size: 45px;
-            position: absolute;
-            right: -15px;
-            bottom: 10px;
-            transform-origin: bottom left;
-            animation: pointWand 4s ease-in-out infinite;
+        /* Hermione Actual Character Image */
+        .hermione-img {
+            height: 100%;
+            object-fit: contain;
+            /* Wand raising/pointing movement animation */
+            animation: pointWandAction 4s ease-in-out infinite;
         }
 
-        /* Magical Light Burst from the Wand */
-        .wand-spark {
+        /* Magical Blue Glow Effect from the Wand area */
+        .wand-glow {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: #fff;
             border-radius: 50%;
-            right: -25px;
-            top: 5px;
-            box-shadow: 0 0 30px 20px rgba(0, 191, 255, 0.9), 0 0 60px 40px rgba(255, 255, 255, 0.5);
+            /* Positioning near where the wand tip usually is */
+            top: 40%;
+            right: 32%;
+            box-shadow: 0 0 35px 25px rgba(0, 191, 255, 0.9), 0 0 70px 50px rgba(255, 255, 255, 0.6);
             opacity: 0;
-            animation: magicBurst 4s ease-in-out infinite;
-            z-index: 1;
-        }
-
-        /* Hermione's Name Tag */
-        .character-name {
-            font-size: 14px;
-            color: #ffd700;
-            margin-top: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
+            animation: glowBurst 4s ease-in-out infinite;
+            z-index: 5;
         }
 
         /* Expecto Patronum Spell Text Animation */
-        .spell-cast-text {
+        .spell-text {
             font-size: 24px;
             font-weight: bold;
             color: #00bfff;
             text-shadow: 0 0 25px #00bfff, 0 0 10px #fff;
-            margin-top: 40px;
+            margin-top: 25px;
             letter-spacing: 1.5px;
             text-align: center;
             opacity: 0;
-            animation: textAppear 4s ease-in-out infinite;
+            animation: spellAppear 4s ease-in-out infinite;
+            z-index: 10;
         }
 
-        /* Video Progress Loader */
-        .video-timeline {
+        /* Video style loop timeline bar */
+        .timeline {
             width: 85%;
             height: 5px;
             background: #222;
             border-radius: 3px;
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             overflow: hidden;
         }
 
-        .timeline-fill-bar {
+        .timeline-fill {
             height: 100%;
             background: #00bfff;
             width: 0%;
-            animation: videoLoader 4s linear infinite;
+            animation: runTimeline 4s linear infinite;
         }
 
         /* --- MAGIC ANIMATIONS --- */
-        
-        /* 1. Wand Pointing Action (Neட்டுவது) */
-        @keyframes pointWand {
-            0%, 20%, 100% { transform: rotate(0deg); } /* Normal Position */
-            40%, 80% { transform: rotate(-35deg) translate(5px, -5px); } /* Pointing forward */
+
+        /* 1. Hermione moves forward/extends to point the wand */
+        @keyframes pointWandAction {
+            0%, 20%, 100% { transform: scale(1) translate(0, 0); }
+            45%, 80% { transform: scale(1.05) translate(5px, -5px); } /* Moves slightly to mimic pointing */
         }
 
-        /* 2. Magic Light Burst from Wand Tip */
-        @keyframes magicBurst {
+        /* 2. Glow burst right when she points */
+        @keyframes glowBurst {
             0%, 35%, 100% { opacity: 0; transform: scale(0.5); }
-            45%, 75% { opacity: 1; transform: scale(1.2); }
+            45%, 75% { opacity: 1; transform: scale(1.3); }
         }
 
-        /* 3. Spell Text Appearance right after pointing */
-        @keyframes textAppear {
-            0%, 40%, 100% { opacity: 0; transform: scale(0.9); }
-            50%, 80% { opacity: 1; transform: scale(1.1); }
+        /* 3. Spell text appears from the magic glow */
+        @keyframes spellAppear {
+            0%, 40%, 100% { opacity: 0; transform: scale(0.8) translateY(10px); }
+            55%, 80% { opacity: 1; transform: scale(1.1) translateY(0); }
         }
 
-        /* 4. 10-Second Continuous Loop Video Bar */
-        @keyframes videoLoader {
+        /* 4. Progress bar */
+        @keyframes runTimeline {
             0% { width: 0%; }
             100% { width: 100%; }
         }
@@ -147,24 +138,23 @@
 </head>
 <body>
 
-    <h1>🎬 HERMIONE'S SPELL SCENE</h1>
+    <h1>🎬 HERMIONE'S MAGICAL MOMENT</h1>
 
     <div class="video-container">
-        <!-- Hermione Character with Wand -->
-        <div class="hermione-avatar">
-            👩🏽‍🦱
-            <div class="wand" id="hermione-wand">🪄</div>
-            <div class="wand-spark"></div>
+        <div class="image-box">
+            <!-- Hermione Full Image with transparent background -->
+            <img class="hermione-img" src="https://images.ctfassets.net/usf1vwtu24tk/4S699X7u6Y8U6m0GAsSgAs/37905fe430eb0fb63ff2f592d3eb03e1/hermione-granger-full-length.png" alt="Hermione Granger">
+            
+            <!-- Magic Glow coming out from her wand position -->
+            <div class="wand-glow"></div>
         </div>
         
-        <div class="character-name">Hermione Granger</div>
-        
-        <!-- The Magical Text that triggers after wand points -->
-        <div class="spell-cast-text">⚡ EXPECTO PATRONUM!</div>
+        <!-- Spell Text shooting out -->
+        <div class="spell-text">⚡ EXPECTO PATRONUM!</div>
 
-        <!-- Video Style Progress Bar at the bottom -->
-        <div class="video-timeline">
-            <div class="timeline-fill-bar"></div>
+        <!-- 10-Second Video Loader -->
+        <div class="timeline">
+            <div class="timeline-fill"></div>
         </div>
     </div>
 
